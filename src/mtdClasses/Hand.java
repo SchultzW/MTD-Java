@@ -12,7 +12,7 @@ public class Hand
 	{
 		
 	}
-	public Boolean isEmpty()
+	public Boolean getIsEmpty()
 	{
 		
 	}
@@ -20,7 +20,62 @@ public class Hand
 	{
 		
 	}
-	public void 
+	public void add(Domino d)
+	{
+		
+	}
+	public void clear()
+	{
+		
+	}
+	public void getDomino()
+	{
+		
+	}
+	public void getDoubleD()
+	{
+		
+	}
+	public Hand()
+	{
+		
+	}
+	pubic Hand()
+	{
+		
+	}
+	public Booleanr HasDomino()
+	{
+		
+	}
+	public Boolean HasDoubleD()
+	{
+		
+	}
+	public int indexOfD()
+	{
+		
+	}
+	public int indexOfDoubleD()
+	{
+		
+	}
+	public int indexOfHighestD()
+	{
+		
+	}
+	public void play()
+	{
+		
+	}
+	public void play()
+	{
+		
+	}
+	public void removeAt()
+	{
+		
+	}
 	
 	
 }
