@@ -57,7 +57,7 @@ public class Hand
 	{
 		handOfDomino=new ArrayList<Domino>();
 	}
-	public Hand(BoneYard by,int playCount)
+	public Hand(Boneyard by,int playCount)
 	{
 		//Up to 4 players take 15 dominoes each, 5 or 6 take 12 each, 7 or 8 take 10 each. 
 		if(playCount==4)

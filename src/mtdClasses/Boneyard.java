@@ -9,11 +9,13 @@ public class Boneyard
 
 	private List<Domino>boneYardList;
 	
+
 	public Boneyard(int maxVal) throws Exception
 	{
+		
 		if(maxVal>=6&maxVal<=12)
 		{
-			
+			boneYardList=new ArrayList<Domino>();
 			Domino first=new Domino(0,0);
 			boneYardList.add(first);
 			for(int i=0;i<=maxVal;i++)
@@ -28,6 +30,7 @@ public class Boneyard
 						if(d.equals(dCheck)|d2.equals(dCheck))
 						{
 							flag=false;
+							break;
 						}
 						else 
 							flag=true;
@@ -100,4 +103,5 @@ public class Boneyard
 	{
 		return boneYardList.size();
 	}
+	
 }
