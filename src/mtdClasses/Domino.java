@@ -12,9 +12,9 @@ public class Domino
 	}
 	public void setSide1(int val) throws Exception
 	{
-		if(val<12)
+		if(val<=12)
 		{
-			side1=val;
+			this.side1=val;
 		}
 		else
 			throw new Exception("That is not a valid value");
@@ -25,9 +25,9 @@ public class Domino
 	}
 	public void setSide2(int val) throws Exception
 	{
-		if(val<12)
+		if(val<=12)
 		{
-			side1=val;
+			this.side2=val;
 		}
 		else
 			throw new Exception("That is not a valid value");
@@ -46,28 +46,37 @@ public class Domino
 		return false;
 	}
 	@Override
-	public boolean equals(Object o)
-	{
-		Domino d=(Domino) o;
-		if(this.side1==d.side1&this.side2==d.side2)
-		{
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + side1;
+		result = prime * result + side2;
+		return result;
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
 			return true;
-		}
-		else
+		if (obj == null)
 			return false;
-		
-		
+		if (getClass() != obj.getClass())
+			return false;
+		Domino other = (Domino) obj;
+		if (side1 != other.side1)
+			return false;
+		if (side2 != other.side2)
+			return false;
+		return true;
 	}
-	public void flip()
+	public void flip() throws Exception
 	{
-		int temp=this.side1;
-		this.side2=this.side1;
-		side2=temp;
+		//d1=1 d2=2
+		int side1=this.getSide1();
+		int side2=this.getSide2();
+		this.setSide2(side1);
+		this.setSide1(side2);
 	}
-	public void GetHash()
-	{
-		
-	}
+	
 	public Boolean isDouble()
 	{
 		if(this.side1==this.side2)
@@ -80,7 +89,7 @@ public class Domino
 	public String toString()
 	{
 		//return this.side1+"|"+this.side2;
-		return String.format("Side 1: {0}  Side 2: {1}", side1, side2);
+		return String.format("Side 1: "+this.getSide1()+"  Side 2: "+this.getSide2());
 	}
 	
 }

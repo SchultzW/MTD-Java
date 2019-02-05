@@ -4,12 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class BoneYard
+public class Boneyard
 {
 
 	private List<Domino>boneYardList;
 	
-	public BoneYard(int maxVal) throws Exception
+	public Boneyard(int maxVal) throws Exception
 	{
 		if(maxVal>=6&maxVal<=12)
 		{
@@ -43,11 +43,7 @@ public class BoneYard
 		else
 			throw new Exception("Tha is not a valid value for a domino.");
 	}
-	public Domino indexOf(int index)
-	{
-		return null;
-		
-	}
+	
 	public Domino getIndexOf(int index)
 	{
 		return boneYardList.get(index);

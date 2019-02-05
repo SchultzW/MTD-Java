@@ -69,7 +69,7 @@ public  abstract class Train
 			dominos.remove(d);
 		}
 	}
-	public boolean isPlayable(Hand h, Domino d)
+	public boolean isPlayable(Domino d)
 	{
 		
 		if(d.getSide1()==playableVal())
@@ -80,6 +80,7 @@ public  abstract class Train
 		
 		return false;
 	}
+	
 	public boolean mustFlip(Domino d)
 	{
 		if(d.getSide2()==playableVal())
@@ -90,7 +91,7 @@ public  abstract class Train
 	public void play(Hand h, Domino d) throws Exception
 	{
 		Boolean flipFlag=mustFlip(d);
-		Boolean playFlag=isPlayable(h,d);
+		Boolean playFlag=isPlayable(d);
 		if(playFlag==true&flipFlag==false)
 		{
 			dominos.add(d);
@@ -105,6 +106,8 @@ public  abstract class Train
 		else
 			throw new Exception("This domino cannot be played.");
 	}
+	 
+   
 	public void removeAt(int index)
 	{
 		dominos.remove(index);
