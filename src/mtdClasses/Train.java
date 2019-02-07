@@ -14,13 +14,15 @@ public  abstract class Train
 	
 	public Train()
 	{
-		this.engineVal=12;
+		
 		dominos=new ArrayList<Domino>();
+		this.engineVal=12;
 	}
 	public Train(int val)//place holder
 	{
-		this.engineVal=val;
+		
 		dominos=new ArrayList<Domino>();
+		this.engineVal=val;
 	}
 	public void setEngVal(int i)
 	{
@@ -44,19 +46,30 @@ public  abstract class Train
 	}
 	public Domino lastDomino()
 	{
-		Domino d;
-		int last=dominos.size();
-		d=dominos.get(last);
-		return d;
+		try
+		{
+			Domino d;
+			int last=dominos.size()-1;
+			d=dominos.get(last);
+			return d;
+		}
+		catch(Exception e)
+		{
+			int val=this.getEngVal();
+			Domino d=new Domino(val,val);
+			return d;
+		}
+		
+		
 	}
 	public int playableVal()
 	{
 		//returns last dominos.side2
-		Domino d;
-		int last=dominos.size();
-		d=dominos.get(last);
 		
-		return d.getSide2();
+		int last=this.lastDomino().getSide2();
+		
+		
+		return last;
 	}
 	public void add(Domino d)
 	{
@@ -64,15 +77,13 @@ public  abstract class Train
 	}
 	public void clear()
 	{
-		for(Domino d:dominos)
-		{
-			dominos.remove(d);
-		}
+		dominos.clear();
+		
 	}
 	public boolean isPlayable(Domino d)
 	{
 		
-		if(d.getSide1()==playableVal())
+		if(d.getSide1()==this.playableVal())
 		{
 			return true;
 		}
@@ -83,10 +94,10 @@ public  abstract class Train
 	
 	public boolean mustFlip(Domino d)
 	{
-		if(d.getSide2()==playableVal())
-			return true;
-		else 
+		if(d.getSide2()==this.playableVal())
 			return false;
+		else 
+			return true;
 	}
 	public void play(Hand h, Domino d) throws Exception
 	{
@@ -112,5 +123,6 @@ public  abstract class Train
 	{
 		dominos.remove(index);
 	}
+	
 	
 }
